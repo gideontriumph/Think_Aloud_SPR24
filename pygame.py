@@ -2,7 +2,7 @@
     Name: pygame.py
     Author: Triumph Ogbonnia
     Created: 1/25/24
-    Purpose: My first platforming game with python
+    Purpose: My first platforming game with python pygame
 """
 
 # Import the pygame module
