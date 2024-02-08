@@ -1,6 +1,5 @@
 # About My Project
-For this think aloud, I am making a platforming game with pygame in python,
-I will be using different resources because I want to make it as advanced as I can.
+This week for my ThinkAloud, I created a window with the background of my pygame and defined the key for user input.
 
 ## About Me
 My name is Triumph Ogbonnia and I am from Nigeria,
