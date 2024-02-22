@@ -1,5 +1,5 @@
 """
-    Name: tetris.py
+    Name: platformer.py
     Author: Triumph Ogbonnia
     Created: 1/25/24
     Purpose: My first platforming game with python pygame
@@ -7,6 +7,7 @@
 
 import pygame, sys
 from settings import *
+from world import World
 
 pygame.init()
 
