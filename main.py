@@ -4,7 +4,6 @@
     Created: 1/25/24
     Purpose: My first platforming game with python pygame
 """
-
 import pygame, sys
 from settings import *
 from world import World
@@ -20,10 +19,11 @@ class Platformer:
 		self.clock = pygame.time.Clock()
 		self.player_event = False
 
-		self.bg_img = pygame.image.load('bg.jpg')
+		self.bg_img = pygame.image.load('assets/terrain/bg.jpg')
 		self.bg_img = pygame.transform.scale(self.bg_img, (width, height))
 
 	def main(self):
+		world = World(world_map, self.screen)
 		while True:
 			self.screen.blit(self.bg_img, (0, 0))
 
@@ -42,6 +42,7 @@ class Platformer:
 				elif event.type == pygame.KEYUP:
 					self.player_event = False
 
+			world.update(self.player_event)
 			pygame.display.update()
 			self.clock.tick(60)
 

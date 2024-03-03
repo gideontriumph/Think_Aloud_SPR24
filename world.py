@@ -1,5 +1,10 @@
 import pygame
 from settings import tile_size, WIDTH
+from tile import Tile
+from trap import Trap
+from goal import Goal
+from player import Player
+from game import Game
 
 class World:
 	def __init__(self, world_data, screen):
@@ -110,3 +115,29 @@ class World:
 				elif player.direction.x > 0 or player.direction.y > 0:
 					player.rect.x -= tile_size
 				player.life -= 1
+
+	# updating the game world from all changes commited
+	def update(self, player_event):
+		# for tile
+		self.tiles.update(self.world_shift)
+		self.tiles.draw(self.screen)
+
+		# for trap
+		self.traps.update(self.world_shift)
+		self.traps.draw(self.screen)
+
+		# for goal
+		self.goal.update(self.world_shift)
+		self.goal.draw(self.screen)
+
+		self._scroll_x()
+
+		# for player
+		self._horizontal_movement_collision()
+		self._vertical_movement_collision()
+		self._handle_traps()
+		self.player.update(player_event)
+		self.game.show_life(self.player.sprite)
+		self.player.draw(self.screen)
+
+		self.game.game_state(self.player.sprite, self.goal.sprite)
